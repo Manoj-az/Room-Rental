@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.filters {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#rooms {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.room {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+#amenitis
+{
+    text-align: center;
+}
+
+#btns
+{
+    font-size:25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color:blue;
+    background-color: antiquewhite;
+    font-weight: bold;
+}
+
+#btns:hover
+{
+color:black;
+}
+

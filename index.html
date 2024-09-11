@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Room Rental Platform</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style3.css">
+
+  </head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Room Rental Platform</h1>
+    <p>Find your perfect room</p>
+  </header>
+
+  <!-- Search and Filter Section -->
+  <section class="search-filter">
+    <center><h1 style="color:brown;font-weight: bold;">Search for Rooms</h1></center>
+    
+    <div class="filters">
+        <!-- Location Filter -->
+        <label for="location" style="font-weight: bold;">Location:</label>
+        <select id="location">
+            <option value="all">All</option>
+            <option value="cityA">Bangalore</option>
+            <option value="cityB">Hyderabad</option>
+            <option value="cityC">Chennai</option>
+            <option value="cityC">Delhi</option>
+            <option value="cityC">Mumba</option>
+        </select>
+
+        <!-- Price Filter -->
+        <label for="price" style="font-weight:bold">Price Range:</label>
+        <select id="price">
+            <option value="all">All</option>
+            <option value="low">Below $500</option>
+            <option value="mid">Between $500 - $5000</option>
+            <option value="high">Between $5000 - $10000</option>
+            <option value="high">Above $10000</option>
+        </select>
+
+        <!-- Amenities Filter -->
+        <div id="amenitis">
+            <p style="font-weight: bold;">Amenities:</p>
+            <label>
+                <input type="checkbox" id="wifi" value="wifi">
+                WiFi
+            </label>
+            <label>
+                <input type="checkbox" id="ac" value="ac">
+                Air Conditioning
+            </label>
+            <label>
+                <input type="checkbox" id="parking" value="parking">
+                Parking
+            </label>
+        </div>
+
+        <br>
+        <center><button onclick="filterRooms()" id="btns">Search</button></center>
+    </div>
+
+    <!-- Room Listings -->
+    <div id="rooms">
+        <div class="room" data-location="cityA" data-price="low" data-amenities="wifi,parking">
+            <img src="img2.jpg" height="200px" width="200px"> 
+            <h2>Room in Bangalore - $400</h2>
+            <p>Amenities: WiFi, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="low" data-amenities="wifi,parking">
+            <img src="imge1.jpg" height="200px" width="200px">
+            <h2>Room in Hyderabad - $1200</h2>
+            <p>Amenities: WiFi, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="low" data-amenities="wifi,parking">
+            <img src="imge3.jpg" height="200px" width="200px">
+            <h2>Room in Delhi - $2000</h2>
+            <p>Amenities: WiFi, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="low" data-amenities="wifi,parking">
+            <img src="img4.jpg" height="200px" width="200px">
+            <h2>Room in Mumbai - $4000</h2>
+            <p>Amenities: WiFi, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="low" data-amenities="wifi,parking">
+            <img src="img5.jpg" height="200px" width="200px">
+            <h2>Room in Chennai - $3400</h2>
+            <p>Amenities: WiFi, Parking</p>
+        </div>
+        <div class="room" data-location="cityB" data-price="mid" data-amenities="ac,parking">
+            <img src="img6.jpg" height="200px" width="200px">
+            <h2>Room in Bangalore - $4500</h2>
+            <p>Amenities: Air Conditioning, Parking</p>
+        </div>
+        <div class="room" data-location="cityC" data-price="high" data-amenities="wifi,ac">
+            <img src="img2.jpg" height="200px" width="200px">
+            <h2>Room in Kolkata - $1500</h2>
+            <p>Amenities: WiFi, Air Conditioning, WiFi</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="mid" data-amenities="ac">
+            <img src="imge3.jpg" height="200px" width="200px">
+            <h2>Room in Hyderabad - $600</h2>
+            <p>Amenities: Air Conditioning, Parking</p>
+        </div>
+        <div class="room" data-location="cityB" data-price="low" data-amenities="wifi">
+            <img src="im4.jpg" height="200px" width="200px">
+            <h2>Room in Mumbai - $7000</h2>
+            <p>Amenities: WiFi, Air Conditioning, Parking</p>
+        </div>
+        <div class="room" data-location="cityB" data-price="low" data-amenities="wifi">
+            <img src="im3.jpg" height="200px" width="200px">
+            <h2>Room in Mumbai - $3000</h2>
+            <p>Amenities: WiFi, Air Conditioning, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="mid" data-amenities="ac">
+            <img src="im2.jpg" height="200px" width="200px">
+            <h2>Room in Hyderabad - $6000</h2>
+            <p>Amenities: Air Conditioning, Parking</p>
+        </div>
+        <div class="room" data-location="cityA" data-price="mid" data-amenities="ac">
+            <img src="im.jpg" height="200px" width="200px">
+            <h2>Room in Hyderabad - $10000</h2>
+            <p>Amenities: Air Conditioning, Parking</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Secure Payments Section -->
+  <section class="secure-payments">
+    <h2>Secure Payments</h2>
+    <p>Make payments safely with <strong>PayU</strong> or <strong>Razorpay</strong>.</p>
+    <button onclick="initiatePayments()">Pay Now</button>
+  </section>
+
+  <!---Basic plan-->
+<section class="Pricing">
+  <h2>Pricing structure and Facilities</h2>
+    <!-- Pricing Tables -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Basic Support</li>
+          <li class="w3-padding-16">Standard Maintenance</li>
+          <li class="w3-padding-16">Online Portal Access</li>
+          <li class="w3-padding-16">No Customization Options</li>
+          <div class="container">
+            <button id="rzp-button" style="margin:10px;padding:5px;" onclick="buy()">Buy Now</button>
+          </div>
+        </ul>
+      </div>
+      
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-teal w3-xlarge w3-padding-32">Premium</li>
+          <li class="w3-padding-16">Priority Support</li>
+          <li class="w3-padding-16">Flexible Lease Terms</li>
+          <li class="w3-padding-16">Parking & Security</li>
+          <li class="w3-padding-16">Discounted Services</li>
+          <div class="container">
+            <button id="rzp-button" style="margin:10px;padding:5px;"onclick="buy()">Buy Now</button>
+          </div>
+        </ul>
+      </div>
+      
+      <div class="w3-third">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Enterprise</li>
+          <li class="w3-padding-16">Comprehensive Maintenance</li>
+          <li class="w3-padding-16">Custom Lease Options</li>
+          <li class="w3-padding-16">Luxury Amenities</li>
+          <li class="w3-padding-16">Enhanced Security</li>
+          <div class="container">
+            <button id="rzp-button" style="margin:10px;padding:5px;" onclick="buy()">Buy Now</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+  <!-- Verified Listings Section -->
+  <section class="verified-listings">
+    <h2>Verified Listings</h2>
+    <p>All our room listings are verified for authenticity using <strong>eKYC</strong>.</p>
+    <div id="listings">
+      <!-- Room listings will be dynamically loaded here -->
+        <div class="li1">
+        <img src="imge1.jpg" height="200px" width="300px">
+        <p style="font-weight:bold;padding-left:10px;">Spacious Room in City Center<br>
+          Price: ₹5000<br>
+          Verified: Yes</p>
+        </div>
+        <div class="li1">
+          <img src="img2.jpg" height="200px" width="300px">
+          <p style="font-weight:bold;padding-left:10px;">Semi Furniture Room at city Center<br>
+            Price: ₹8000<br>
+            Verified: Yes</p>
+        </div>
+        <div class="li1">
+          <img src="imge3.jpg" height="200px" width="300px">
+          <p style="font-weight:bold;padding-left:10px;">Good Ventilation Room in City Center<br>
+            Price: ₹10000<br>
+            Verified: Yes</p>
+        </div>
+        <!--<div class="li1">
+          <img src="img4.jpg" height="300px" width="200px">
+        </div>
+        <div class="li1">
+          <img src="img5.jpg" height="300px" width="200px">
+        </div>-->
+      
+
+
+    </div>
+  </section>
+
+  <!-- Reviews and Ratings Section -->
+  <section class="reviews">
+    <div class="main-container">
+      <h1>Product Reviews</h1>
+      <button id="openReviewForm">Write a Review</button>
+      <div id="reviewsSection">
+          <h2>User Reviews</h2>
+          <ul id="reviewsList">
+              <!-- Reviews will be displayed here -->
+          </ul>
+      </div>
+  </div>
+
+  <!-- Hidden Review Form -->
+  <div id="reviewFormContainer" class="hidden">
+      <h2>Submit Your Review</h2>
+      <input type="text" id="userName" placeholder="Your Name" required>
+      <textarea id="userReview" placeholder="Write your review here..." required></textarea>
+      <label for="userRating">Rating: </label>
+      <select id="userRating">
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Very Bad</option>
+      </select>
+      <button id="submitReview">Submit Review</button>
+  </div>
+
+  </section>
+
+  <!-- Customer Support Section -->
+  <section class="support">
+    <h2>24/7 Customer Support</h2>
+    <p>We offer round-the-clock support for any issues or inquiries. <a href="#" style="color:brown">Contact Us</a></p>
+  </section>
+
+  <!-- Lease Terms Section -->
+  <section class="lease-terms">
+    <h2>Flexible Lease Terms</h2>
+    <input type="radio" name="lease">Short term Rental
+    <input type="radio" name="lease">Long term Rental
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Room Rental Platform</p>
+  </footer>
+
+  <script src="main.js"></script>
+<script src="script.js"></script>
+<script src="script2.js"></script>
+</body>
+</html>
